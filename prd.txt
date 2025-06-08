@@ -1,0 +1,299 @@
+Mobile ChatGPT Clone - Product Requirements Document (PRD)
+
+PROJECT OVERVIEW
+
+The goal of this project is to develop a mobile-first AI chat application that provides ChatGPT-like functionality with text-based conversations and image generation capabilities. The application will be deployed on free hosting (Vercel/Render) and serve as a fully functional AI assistant clone optimized for mobile users.
+
+LEVEL: Medium
+
+TYPE OF PROJECT: 
+AI Development, Mobile Web Application, Full-Stack Development
+
+SKILLS REQUIRED:
+- Next.js 14+ with App Router
+- tRPC with Tanstack React Query
+- Bootstrap UI/CSS
+- Supabase (Database & Real-time)
+- Auth0 Integration
+- Google Gemini API Integration
+- Mobile-First Responsive Design
+
+TECHNICAL STACK
+
+FRONTEND:
+- Framework: Next.js 14+ with App Router
+- API Layer: tRPC with Tanstack React Query
+- UI Framework: Bootstrap 5
+- Styling: Bootstrap CSS + Custom CSS for mobile optimization
+
+BACKEND & SERVICES:
+- Database: Supabase (PostgreSQL)
+- Authentication: Auth0
+- LLM APIs: Google Gemini Pro (text) + Google Gemini Pro Vision (image generation)
+- Deployment: Vercel (preferred) or Render
+
+CORE FEATURES & REQUIREMENTS
+
+1. CORE CHAT FUNCTIONALITY
+- Real-time text-based conversations with AI
+- Support for multi-turn conversations
+- Message threading and context retention
+- Typing indicators and loading states
+- Error handling for API failures
+
+2. IMAGE GENERATION
+- Integration with Google Gemini Pro Vision for image generation
+- Support for text-to-image prompts
+- Image preview and download capabilities
+- Loading states for image generation (longer processing times)
+
+3. USER AUTHENTICATION
+- Secure login/signup via Auth0
+- Social login options (Google, GitHub)
+- User profile management
+- Session management and token refresh
+
+4. CHAT HISTORY & PERSISTENCE
+- Save all user conversations to Supabase
+- Organize chats by date/session
+- Search functionality within chat history
+- Export chat conversations
+
+5. MOBILE-FIRST UI/UX
+- Responsive design optimized for mobile screens
+- Touch-friendly interface elements
+- Swipe gestures for navigation
+- Optimized keyboard interactions
+- PWA capabilities for app-like experience
+
+DATABASE SCHEMA (SUPABASE)
+
+USERS TABLE
+users (
+  id: uuid (primary key)
+  auth0_id: text (unique)
+  email: text
+  name: text
+  avatar_url: text
+  created_at: timestamp
+  updated_at: timestamp
+)
+
+CHAT SESSIONS TABLE
+chat_sessions (
+  id: uuid (primary key)
+  user_id: uuid (foreign key to users.id)
+  title: text
+  created_at: timestamp
+  updated_at: timestamp
+)
+
+MESSAGES TABLE
+messages (
+  id: uuid (primary key)
+  session_id: uuid (foreign key to chat_sessions.id)
+  content: text
+  role: enum ('user', 'assistant')
+  message_type: enum ('text', 'image')
+  image_url: text (nullable)
+  tokens_used: integer
+  created_at: timestamp
+)
+
+tRPC API STRUCTURE
+
+AUTHENTICATION ROUTER
+auth: {
+  getUser: procedure
+  updateProfile: procedure
+}
+
+CHAT ROUTER
+chat: {
+  sendMessage: procedure
+  generateImage: procedure
+  getChatHistory: procedure
+  createSession: procedure
+  deleteSession: procedure
+}
+
+USER ROUTER
+user: {
+  getProfile: procedure
+  updateProfile: procedure
+  getUsageStats: procedure
+}
+
+MOBILE UI/UX CONSIDERATIONS
+
+LAYOUT & NAVIGATION
+- Bottom navigation bar for main sections
+- Hamburger menu for secondary options
+- Full-screen chat interface
+- Minimal header to maximize chat space
+- Sticky input field at bottom
+
+CHAT INTERFACE
+- Message bubbles optimized for mobile screens
+- Auto-scroll to latest messages
+- Pull-to-refresh for chat history
+- Long-press for message options
+- Image gallery view for generated images
+
+TOUCH INTERACTIONS
+- Swipe left/right for chat navigation
+- Pull-down for chat history
+- Tap and hold for message actions
+- Double-tap to regenerate responses
+
+PERFORMANCE OPTIMIZATIONS
+- Lazy loading for chat history
+- Image compression and optimization
+- Message virtualization for long conversations
+- Offline support with service workers
+
+DEVELOPMENT PHASES & MILESTONES
+
+PHASE 1: FOUNDATION SETUP (WEEK 1)
+Goal: Basic project structure and core integrations
+
+Tasks:
+- Set up Next.js 14 project with App Router
+- Configure tRPC with Tanstack React Query
+- Set up Bootstrap UI framework
+- Configure Supabase project and basic tables
+- Set up Auth0 authentication
+- Create basic mobile-responsive layout
+- Deploy to Vercel/Render with CI/CD
+
+Deliverables:
+- Working authentication flow
+- Basic mobile UI shell
+- Database connections established
+- Deployment pipeline active
+
+PHASE 2: CORE CHAT ENGINE (WEEK 2)
+Goal: Implement basic text-based chat functionality
+
+Tasks:
+- Integrate Google Gemini Pro API for text generation
+- Build chat interface components
+- Implement message sending/receiving
+- Create chat session management
+- Add basic error handling
+- Implement chat history persistence
+
+Deliverables:
+- Functional text-based chat
+- Message history saving
+- Basic mobile chat UI
+- Session management
+
+PHASE 3: IMAGE GENERATION (WEEK 3)
+Goal: Add image generation capabilities
+
+Tasks:
+- Integrate Google Gemini Pro Vision API
+- Build image generation UI components
+- Implement image upload/display
+- Add loading states for image generation
+- Optimize image handling for mobile
+- Add image download functionality
+
+Deliverables:
+- Working image generation feature
+- Mobile-optimized image display
+- Image history and management
+
+PHASE 4: ENHANCED MOBILE EXPERIENCE (WEEK 4)
+Goal: Polish mobile UI/UX and add advanced features
+
+Tasks:
+- Implement swipe gestures and touch interactions
+- Add chat search functionality
+- Create user profile management
+- Implement usage analytics
+- Add PWA capabilities
+- Optimize performance for mobile
+
+Deliverables:
+- Polished mobile experience
+- Advanced navigation features
+- PWA installation capability
+- Performance optimizations
+
+PHASE 5: PRODUCTION READINESS (WEEK 5)
+Goal: Final optimizations and deployment
+
+Tasks:
+- Comprehensive testing on various mobile devices
+- Error handling and edge case management
+- Rate limiting and API usage optimization
+- Security audit and improvements
+- Documentation and deployment guides
+- User feedback integration
+
+Deliverables:
+- Production-ready application
+- Comprehensive testing coverage
+- Security implementations
+- Deployment documentation
+
+KEY INTEGRATION POINTS
+
+AUTH0 + SUPABASE INTEGRATION
+- Use Auth0 for authentication, Supabase for data storage
+- Map Auth0 user IDs to Supabase users table
+- Handle token refresh and session management
+
+tRPC + GOOGLE GEMINI APIs
+- Create tRPC procedures for both text and image generation
+- Implement proper error handling for API rate limits
+- Add request queuing for concurrent API calls
+
+MOBILE-FIRST BOOTSTRAP IMPLEMENTATION
+- Use Bootstrap's mobile-first grid system
+- Custom CSS for chat-specific components
+- Responsive breakpoints optimized for mobile devices
+
+SUCCESS METRICS
+
+TECHNICAL METRICS
+- Page load time < 2 seconds on mobile
+- API response time < 3 seconds for text, < 10 seconds for images
+- 99%+ uptime on free hosting tier
+- Mobile lighthouse score > 90
+
+USER EXPERIENCE METRICS
+- Chat session completion rate > 80%
+- User retention rate > 60% (7-day)
+- Average session duration > 5 minutes
+- Mobile usability score > 95%
+
+RISK MITIGATION
+
+API RATE LIMITS
+- Implement client-side rate limiting
+- Add request queuing system
+- Provide clear error messages for limits
+
+FREE HOSTING LIMITATIONS
+- Optimize for Vercel's free tier limits
+- Implement efficient caching strategies
+- Monitor resource usage proactively
+
+MOBILE PERFORMANCE
+- Minimize bundle size
+- Implement lazy loading
+- Optimize images and assets
+- Use service workers for caching
+
+FUTURE ENHANCEMENTS (POST-MVP)
+
+- Voice input/output capabilities
+- Multi-language support
+- Chat templates and presets
+- Advanced image editing features
+- Team collaboration features
+- Analytics dashboard
+- Custom AI model fine-tuning
