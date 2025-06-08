@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "generatedAt": "2025-06-08T11:27:29.840Z",
+    "tasksAnalyzed": 10,
+    "totalTasks": 10,
+    "analysisCount": 10,
+    "thresholdScore": 5,
+    "projectName": "Taskmaster",
+    "usedResearch": false
+  },
+  "complexityAnalysis": [
+    {
+      "taskId": 1,
+      "taskTitle": "Setup Next.js Project with App Router",
+      "complexityScore": 3,
+      "recommendedSubtasks": 3,
+      "expansionPrompt": "Break down the task into subtasks: 1) Initialize the project with `create-next-app`, 2) Configure the App Router, 3) Set up the basic folder structure and install dependencies.",
+      "reasoning": "This task is foundational but straightforward, involving standard setup steps. Breaking it into subtasks ensures each part is methodically completed."
+    },
+    {
+      "taskId": 2,
+      "taskTitle": "Configure tRPC with Tanstack React Query",
+      "complexityScore": 7,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the task into subtasks: 1) Install required packages, 2) Set up tRPC routers and procedures, 3) Configure the tRPC client, 4) Test type safety and basic procedures.",
+      "reasoning": "This task involves multiple integrations and configurations, requiring careful setup and testing to ensure type safety and functionality."
+    },
+    {
+      "taskId": 3,
+      "taskTitle": "Set Up Bootstrap UI Framework",
+      "complexityScore": 4,
+      "recommendedSubtasks": 3,
+      "expansionPrompt": "Break down the task into subtasks: 1) Install Bootstrap and dependencies, 2) Import and configure Bootstrap CSS, 3) Create custom mobile optimizations.",
+      "reasoning": "While straightforward, this task involves styling and responsiveness considerations, warranting subtasks for clarity."
+    },
+    {
+      "taskId": 4,
+      "taskTitle": "Configure Supabase Database",
+      "complexityScore": 6,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the task into subtasks: 1) Create Supabase project, 2) Define tables and schema, 3) Set up RLS policies, 4) Install and test Supabase client.",
+      "reasoning": "Database setup requires careful schema design and security configurations, making subtasks essential for thoroughness."
+    },
+    {
+      "taskId": 5,
+      "taskTitle": "Integrate Auth0 Authentication",
+      "complexityScore": 7,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the task into subtasks: 1) Set up Auth0 application, 2) Install and configure `@auth0/nextjs-auth0`, 3) Implement login/logout flows, 4) Map Auth0 users to Supabase.",
+      "reasoning": "Authentication involves multiple steps and integrations, including security considerations and user data mapping."
+    },
+    {
+      "taskId": 6,
+      "taskTitle": "Deploy to Vercel with CI/CD",
+      "complexityScore": 5,
+      "recommendedSubtasks": 3,
+      "expansionPrompt": "Break down the task into subtasks: 1) Connect GitHub to Vercel, 2) Configure environment variables, 3) Set up automatic deployments.",
+      "reasoning": "Deployment is moderately complex, requiring environment setup and CI/CD configuration, but is well-documented by Vercel."
+    },
+    {
+      "taskId": 7,
+      "taskTitle": "Implement Core Chat Interface",
+      "complexityScore": 6,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the task into subtasks: 1) Create message components, 2) Implement input field and auto-scroll, 3) Add loading states, 4) Style for responsiveness.",
+      "reasoning": "Building a chat interface involves multiple UI components and state management, requiring careful implementation."
+    },
+    {
+      "taskId": 8,
+      "taskTitle": "Integrate Google Gemini Pro API",
+      "complexityScore": 8,
+      "recommendedSubtasks": 5,
+      "expansionPrompt": "Break down the task into subtasks: 1) Set up API credentials, 2) Create tRPC procedures, 3) Implement error handling, 4) Add rate limiting, 5) Test API integration.",
+      "reasoning": "API integration is complex, involving credentials, procedures, and error handling, with potential for edge cases."
+    },
+    {
+      "taskId": 9,
+      "taskTitle": "Add Image Generation with Gemini Pro Vision",
+      "complexityScore": 7,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the task into subtasks: 1) Set up API credentials, 2) Create tRPC procedures, 3) Build UI components, 4) Test image generation.",
+      "reasoning": "Similar to text API integration but with additional UI components for image handling, increasing complexity."
+    },
+    {
+      "taskId": 10,
+      "taskTitle": "Implement Chat History Persistence",
+      "complexityScore": 6,
+      "recommendedSubtasks": 4,
+      "expansionPrompt": "Break down the task into subtasks: 1) Create tRPC procedures for history, 2) Implement search functionality, 3) Add export options, 4) Test data syncing.",
+      "reasoning": "Persistence involves database operations and UI synchronization, requiring careful implementation and testing."
+    }
+  ]
+}
