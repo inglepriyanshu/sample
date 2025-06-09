@@ -1,0 +1,11 @@
+# Task ID: 5
+# Title: Integrate Auth0 Authentication
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Implement secure login/signup using Auth0 with social login options (Google, GitHub).
+# Details:
+Set up an Auth0 application and configure the required settings (e.g., callback URLs). Install `@auth0/nextjs-auth0` for Next.js integration. Implement login/logout flows and session management. Map Auth0 user IDs to Supabase `users` table.
+
+# Test Strategy:
+Test login/logout flows and verify user data is correctly stored in Supabase.

@@ -1,0 +1,142 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Setup Next.js Project with App Router",
+      "description": "Initialize a Next.js 14+ project with App Router and configure the basic project structure.",
+      "details": "Use `create-next-app` to initialize the project with TypeScript. Configure the App Router for routing. Set up the basic folder structure (e.g., `app/`, `public/`, `styles/`). Install required dependencies like `next`, `react`, and `react-dom`.",
+      "testStrategy": "Verify the project runs locally with `npm run dev` and the default Next.js page loads correctly.",
+      "priority": "high",
+      "dependencies": [],
+      "status": "done",
+      "subtasks": []
+    },
+    {
+      "id": 2,
+      "title": "Configure tRPC with Tanstack React Query",
+      "description": "Set up tRPC for API communication and integrate Tanstack React Query for data fetching.",
+      "details": "Install `@trpc/server`, `@trpc/client`, `@trpc/next`, and `@tanstack/react-query`. Configure tRPC routers and procedures. Set up the tRPC client in the frontend. Ensure proper type safety with TypeScript.",
+      "testStrategy": "Test basic tRPC procedures (e.g., a simple ping-pong endpoint) to verify communication between client and server.",
+      "priority": "high",
+      "dependencies": [
+        1
+      ],
+      "status": "done",
+      "subtasks": []
+    },
+    {
+      "id": 3,
+      "title": "Set Up Bootstrap UI Framework",
+      "description": "Integrate Bootstrap 5 for styling and layout, with custom CSS for mobile optimization.",
+      "details": "Install Bootstrap 5 and its dependencies (e.g., `bootstrap`, `react-bootstrap`). Import Bootstrap CSS in the project. Create custom CSS overrides for mobile-specific optimizations (e.g., touch-friendly buttons, responsive grids).",
+      "testStrategy": "Verify the UI renders correctly on mobile devices using browser dev tools or physical devices.",
+      "priority": "medium",
+      "dependencies": [
+        1
+      ],
+      "status": "pending",
+      "subtasks": []
+    },
+    {
+      "id": 4,
+      "title": "Configure Supabase Database",
+      "description": "Set up Supabase project and create the required tables (users, chat_sessions, messages).",
+      "details": "Create a Supabase project and configure the database. Define the `users`, `chat_sessions`, and `messages` tables as per the schema. Set up row-level security (RLS) policies. Install `@supabase/supabase-js` for client-side interactions.",
+      "testStrategy": "Test CRUD operations on the tables using the Supabase client to ensure data persistence.",
+      "priority": "high",
+      "dependencies": [
+        1
+      ],
+      "status": "pending",
+      "subtasks": []
+    },
+    {
+      "id": 5,
+      "title": "Integrate Auth0 Authentication",
+      "description": "Implement secure login/signup using Auth0 with social login options (Google, GitHub).",
+      "details": "Set up an Auth0 application and configure the required settings (e.g., callback URLs). Install `@auth0/nextjs-auth0` for Next.js integration. Implement login/logout flows and session management. Map Auth0 user IDs to Supabase `users` table.",
+      "testStrategy": "Test login/logout flows and verify user data is correctly stored in Supabase.",
+      "priority": "high",
+      "dependencies": [
+        1
+      ],
+      "status": "pending",
+      "subtasks": []
+    },
+    {
+      "id": 6,
+      "title": "Deploy to Vercel with CI/CD",
+      "description": "Deploy the application to Vercel and set up continuous integration and deployment.",
+      "details": "Connect the GitHub repository to Vercel. Configure environment variables (e.g., Supabase URL/key, Auth0 credentials). Set up automatic deployments on push to the main branch.",
+      "testStrategy": "Verify the deployed application is accessible and functional on Vercel.",
+      "priority": "medium",
+      "dependencies": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "status": "pending",
+      "subtasks": []
+    },
+    {
+      "id": 7,
+      "title": "Implement Core Chat Interface",
+      "description": "Build the chat interface with message bubbles, input field, and loading states.",
+      "details": "Create reusable components for message bubbles, input field, and typing indicators. Implement auto-scroll to the latest message. Add loading states for API calls. Style the chat interface for mobile-first responsiveness.",
+      "testStrategy": "Test message sending/receiving and verify the UI updates correctly.",
+      "priority": "high",
+      "dependencies": [
+        1,
+        2,
+        3
+      ],
+      "status": "pending",
+      "subtasks": []
+    },
+    {
+      "id": 8,
+      "title": "Integrate Google Gemini Pro API",
+      "description": "Connect to Google Gemini Pro API for text-based chat functionality.",
+      "details": "Set up Google Gemini Pro API credentials. Create tRPC procedures for sending/receiving messages. Implement error handling for API failures. Add rate limiting and request queuing.",
+      "testStrategy": "Test the API integration by sending/receiving messages and verifying responses.",
+      "priority": "high",
+      "dependencies": [
+        2,
+        4
+      ],
+      "status": "pending",
+      "subtasks": []
+    },
+    {
+      "id": 9,
+      "title": "Add Image Generation with Gemini Pro Vision",
+      "description": "Integrate Google Gemini Pro Vision API for text-to-image generation.",
+      "details": "Set up Google Gemini Pro Vision API credentials. Create tRPC procedures for image generation. Build UI components for image preview and download. Add loading states for image processing.",
+      "testStrategy": "Test image generation by sending prompts and verifying the output.",
+      "priority": "medium",
+      "dependencies": [
+        2,
+        4,
+        7
+      ],
+      "status": "pending",
+      "subtasks": []
+    },
+    {
+      "id": 10,
+      "title": "Implement Chat History Persistence",
+      "description": "Save and retrieve chat sessions and messages from Supabase.",
+      "details": "Create tRPC procedures for saving/loading chat history. Implement search functionality for chat sessions. Add export options for conversations. Ensure data is synced between Supabase and the UI.",
+      "testStrategy": "Test saving/loading chat history and verify data consistency.",
+      "priority": "medium",
+      "dependencies": [
+        4,
+        7
+      ],
+      "status": "pending",
+      "subtasks": []
+    }
+  ]
+}

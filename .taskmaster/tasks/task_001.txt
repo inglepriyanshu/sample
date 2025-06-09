@@ -1,0 +1,11 @@
+# Task ID: 1
+# Title: Setup Next.js Project with App Router
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Initialize a Next.js 14+ project with App Router and configure the basic project structure.
+# Details:
+Use `create-next-app` to initialize the project with TypeScript. Configure the App Router for routing. Set up the basic folder structure (e.g., `app/`, `public/`, `styles/`). Install required dependencies like `next`, `react`, and `react-dom`.
+
+# Test Strategy:
+Verify the project runs locally with `npm run dev` and the default Next.js page loads correctly.

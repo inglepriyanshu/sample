@@ -1,0 +1,11 @@
+# Task ID: 6
+# Title: Deploy to Vercel with CI/CD
+# Status: pending
+# Dependencies: 1, 2, 3, 4, 5
+# Priority: medium
+# Description: Deploy the application to Vercel and set up continuous integration and deployment.
+# Details:
+Connect the GitHub repository to Vercel. Configure environment variables (e.g., Supabase URL/key, Auth0 credentials). Set up automatic deployments on push to the main branch.
+
+# Test Strategy:
+Verify the deployed application is accessible and functional on Vercel.

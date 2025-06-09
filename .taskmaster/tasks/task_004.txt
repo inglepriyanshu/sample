@@ -1,0 +1,11 @@
+# Task ID: 4
+# Title: Configure Supabase Database
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Set up Supabase project and create the required tables (users, chat_sessions, messages).
+# Details:
+Create a Supabase project and configure the database. Define the `users`, `chat_sessions`, and `messages` tables as per the schema. Set up row-level security (RLS) policies. Install `@supabase/supabase-js` for client-side interactions.
+
+# Test Strategy:
+Test CRUD operations on the tables using the Supabase client to ensure data persistence.

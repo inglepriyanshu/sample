@@ -1,0 +1,11 @@
+# Task ID: 9
+# Title: Add Image Generation with Gemini Pro Vision
+# Status: pending
+# Dependencies: 2, 4, 7
+# Priority: medium
+# Description: Integrate Google Gemini Pro Vision API for text-to-image generation.
+# Details:
+Set up Google Gemini Pro Vision API credentials. Create tRPC procedures for image generation. Build UI components for image preview and download. Add loading states for image processing.
+
+# Test Strategy:
+Test image generation by sending prompts and verifying the output.
